@@ -1,1 +1,0 @@
-CSRF_FAILURE_VIEW = ''
