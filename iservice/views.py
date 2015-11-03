@@ -1,1 +1,1 @@
-import json
+CSRF_FAILURE_VIEW = ''
