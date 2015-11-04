@@ -1,12 +1,12 @@
 
 # this will beeeeeee  eeeeee
-from ConfigParser import RawConfigParser
+# from ConfigParser import RawConfigParser
 import os
 PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 project_path = lambda a: os.path.join(PROJECT_PATH, a)
 here = lambda a: os.path.join(os.path.abspath(os.path.dirname(__file__)), a)
-config = RawConfigParser()
-config.read(os.path.join(here(''), 'config.cfg'))
+# config = RawConfigParser()
+# config.read(os.path.join(here(''), 'config.cfg'))
 
 """
 Django settings for iservice project.
@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'iservice',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -66,17 +67,26 @@ WSGI_APPLICATION = 'iservice.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': config.get('db_pgsql', 'ENGINE'), # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+#         'NAME': config.get('db_pgsql', 'NAME'),                    # Or path to database file if using sqlite3.
+#         'USER': config.get('db_pgsql', 'USER'),                     # Not used with sqlite3.
+#         'PASSWORD': config.get('db_pgsql', 'PASSWORD'),              # Not used with sqlite3.
+#         'HOST': config.get('db_pgsql', 'HOST'),                      # Set to empty string for localhost. Not used with sqlite3.
+#         'PORT': config.get('db_pgsql', 'PORT'),                        # Set to empty string for default. Not used with sqlite3.
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': config.get('db_pgsql', 'ENGINE'), # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': config.get('db_pgsql', 'NAME'),                    # Or path to database file if using sqlite3.
-        'USER': config.get('db_pgsql', 'USER'),                     # Not used with sqlite3.
-        'PASSWORD': config.get('db_pgsql', 'PASSWORD'),              # Not used with sqlite3.
-        'HOST': config.get('db_pgsql', 'HOST'),                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': config.get('db_pgsql', 'PORT'),                        # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'mypassword',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
